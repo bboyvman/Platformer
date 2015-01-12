@@ -14,18 +14,15 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.chhimd.platformer.controller.CameraController;
 import com.chhimd.platformer.controller.LevelController;
+import com.chhimd.platformer.controller.PlayerController;
 import com.chhimd.platformer.model.Player;
 
 public class GameScreen implements Screen {
 
-    public OrthographicCamera camera;
-
-    public Player player;
-
     public GameScreen() {
       LevelController.initializeController();
       CameraController.initializeController();
-        player = new Player(70, 100);
+      PlayerController.initializeController();
 
     }
 
@@ -41,8 +38,10 @@ public class GameScreen implements Screen {
 
         LevelController.update(delta);
         CameraController.update();
+        PlayerController.update(delta);
+        LevelController.draw();
 
-        player.updates(delta);
+
 
     }
 

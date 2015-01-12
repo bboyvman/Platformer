@@ -7,9 +7,14 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.chhimd.platformer.model.Level;
 
 public class LevelController {
-    public static TiledMap map;
+
+    public static final float UNIT_SCALE = 1/70f;
+
+    public static Level level;
+
     public static OrthogonalTiledMapRenderer renderer;
 
     // to draw our sprite on the screen
@@ -20,8 +25,8 @@ public class LevelController {
     private static  Box2DDebugRenderer debugRenderer;
 
     public static void initializeController() {
-        map = new TmxMapLoader().load("map/map1.tmx");// loading the map
-        renderer = new OrthogonalTiledMapRenderer(map, 1 / 70f);// telling render how wide/tall it is
+         level = new Level("map/map1.tmx");
+         renderer = new OrthogonalTiledMapRenderer(level.map, UNIT_SCALE);// telling render how wide/tall it is
 
         gameWorld = new World(new Vector2(0, -10), true);
         debugRenderer = new Box2DDebugRenderer();
@@ -32,7 +37,7 @@ public class LevelController {
 
     public static void draw() {
         spriteBatch.begin();
-        player.draw(spriteBatch);
+        PlayerController.draw(spriteBatch);
         spriteBatch.end();
         // display the shape of the exact size
         debugRenderer.render(gameWorld, CameraController.camera.combined);

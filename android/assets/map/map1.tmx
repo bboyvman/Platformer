@@ -4,7 +4,7 @@
   <image source="../img/background-tiles.png" width="910" height="840"/>
  </tileset>
  <tileset firstgid="157" name="ice-tiles" tilewidth="70" tileheight="70">
-  <image source="../../../../../../Public/Pictures/Sample Pictures/ice-tiles.png" width="980" height="490"/>
+  <image source="../img/ice-tiles.png" width="980" height="490"/>
  </tileset>
  <layer name="Tile Layer 1" width="20" height="10">
   <data encoding="base64">

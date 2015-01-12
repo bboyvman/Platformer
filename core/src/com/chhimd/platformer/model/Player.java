@@ -29,8 +29,8 @@ public class Player {
 
     public Player(int width, int height) {
         position = new Vector2(4, 4); // initialize the position to origin
-        this.width = width * (1/70f);
-        this.height = height * (1/70f);
+        this.width = width * LevelController.UNIT_SCALE;
+        this.height = height * LevelController.UNIT_SCALE;
         spriteSheet = new Spritesheet("img/aliens.png", width, height);
         animations = new HashMap<String, Animation>();
 
