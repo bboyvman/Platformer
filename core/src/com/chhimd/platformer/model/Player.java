@@ -16,23 +16,10 @@ import com.chhimd.platformer.view.GameScreen;
 import java.util.HashMap;
 
 
-public class Player {
-    public Vector2 position; // a point for x, y positioning
-    public Spritesheet spriteSheet;
-    public float width;
-    public float height;
-    public String currentAnimation;
+public class Player extends Sprite { // family tree
 
-
-    private float stateTime;
-    private HashMap<String, Animation> animations;
-
-    public Player(int width, int height) {
-        position = new Vector2(4, 4); // initialize the position to origin
-        this.width = width * LevelController.UNIT_SCALE;
-        this.height = height * LevelController.UNIT_SCALE;
-        spriteSheet = new Spritesheet("img/aliens.png", width, height);
-        animations = new HashMap<String, Animation>();
+    public Player(Vector2 position ,int width, int height) {
+        super(position, width, height);
 
         BodyDef bodyDefinition = new BodyDef();
         bodyDefinition.type = BodyDef.BodyType.DynamicBody;
@@ -69,20 +56,18 @@ public class Player {
 
         currentAnimation = "walk";
 
-        stateTime = 0f;
+
     }
 
     // function to draw speadsheet
     public void draw(Batch spriteBatch) {
-        // to draw the player on the screen
-        spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width, height);
-
+        super.draw(spriteBatch);
     }
     // function to update position of player
-    public void updates(float deltaTimes) {
-        stateTime += deltaTimes;
-     }
+    public void updates(float deltaTime) {
+        super.updates(deltaTime);
 
+     }
 }
 
 
