@@ -25,8 +25,8 @@ public class Player extends Sprite { // family tree
         bodyDefinition.type = BodyDef.BodyType.DynamicBody;
         bodyDefinition.position.set(position);
 
-        Body playerBody = LevelController.gameWorld.createBody(bodyDefinition);
-        playerBody.setUserData(this);
+        physicsbody = LevelController.gameWorld.createBody(bodyDefinition);
+        physicsbody.setUserData(this);
 
         PolygonShape rectangleShape = new PolygonShape();
         rectangleShape.setAsBox(this.width / 2f, this.height / 2f, new Vector2(this.width / 2f, this.height / 2f), 0f);
@@ -34,7 +34,7 @@ public class Player extends Sprite { // family tree
         FixtureDef fixtureDefinition = new FixtureDef();
         fixtureDefinition.shape = rectangleShape;
 
-        playerBody.createFixture(fixtureDefinition);
+        physicsbody.createFixture(fixtureDefinition);
         rectangleShape.dispose();
 
         // stand, jump, walk, climb, hurt, idol, swim, climb, duck
@@ -55,7 +55,6 @@ public class Player extends Sprite { // family tree
         animations.put("hurtleft", spriteSheet.flipAnimation(animations.get("hurt"), true, false));
 
         currentAnimation = "walk";
-
 
     }
 

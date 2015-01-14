@@ -3,11 +3,13 @@ package com.chhimd.platformer.model;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.chhimd.platformer.controller.LevelController;
 
 import java.util.HashMap;
 
 public class Sprite {
+    public Body physicsbody;
     public Vector2 position; // a point for x, y positioning
     public Spritesheet spriteSheet;
     public float width;

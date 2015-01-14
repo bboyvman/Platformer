@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.chhimd.platformer.model.Level;
 import com.chhimd.platformer.model.Player;
+import com.chhimd.platformer.model.Sprite;
 
 public class LevelController {
 
@@ -32,7 +33,7 @@ public class LevelController {
     public static void initializeController() {
          level = new Level("map/map1.tmx");
          renderer = new OrthogonalTiledMapRenderer(level.map, UNIT_SCALE);// telling render how wide/tall it is
-        gameWorld = new World(new Vector2(0, -10), true);
+        gameWorld = new World(new Vector2(0, 0), true);
         worldBodies = new Array<Body>();
         debugRenderer = new Box2DDebugRenderer();
 
@@ -60,8 +61,8 @@ public class LevelController {
         gameWorld.getBodies(worldBodies);
 
         for (Body body : worldBodies) { //access every body in world bodies
-            Player playerBody = (Player)body.getUserData();//casting a variable
-            playerBody.position = body.getPosition();//this line does all the work
+           Sprite spriteBody = (Player)body.getUserData();//casting a variable
+            spriteBody.position = body.getPosition();//this line does all the work
         }
     }
 }
