@@ -15,7 +15,7 @@ public class PlayerController {
 
     public static void initializeController() {
 
-        player = new Player(new Vector2(2,2), 70, 100);
+        player = new Player(new Vector2(2,2), 70, 100, "img/aliens.png");
 
     }
 

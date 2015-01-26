@@ -13,8 +13,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.chhimd.platformer.controller.CameraController;
+import com.chhimd.platformer.controller.EnemyController;
 import com.chhimd.platformer.controller.LevelController;
 import com.chhimd.platformer.controller.PlayerController;
+import com.chhimd.platformer.model.Enemy;
 import com.chhimd.platformer.model.Player;
 
 public class GameScreen implements Screen {
@@ -23,6 +25,7 @@ public class GameScreen implements Screen {
       LevelController.initializeController();
       CameraController.initializeController();
       PlayerController.initializeController();
+      EnemyController.initializeController();
 
     }
 
@@ -39,6 +42,7 @@ public class GameScreen implements Screen {
         LevelController.update(delta);
         CameraController.update();
         PlayerController.update(delta);
+        EnemyController.update(delta);
         LevelController.draw();
 
 

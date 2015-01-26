@@ -18,8 +18,8 @@ import java.util.HashMap;
 
 public class Player extends Sprite { // family tree
 
-    public Player(Vector2 position ,int width, int height) {
-        super(position, width, height);
+    public Player(Vector2 position ,int width, int height, String sheetPatch) {
+        super(position, width, height, sheetPatch);
 
         BodyDef bodyDefinition = new BodyDef();
         bodyDefinition.type = BodyDef.BodyType.DynamicBody;

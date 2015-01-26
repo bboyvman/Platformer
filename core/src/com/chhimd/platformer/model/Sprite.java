@@ -20,17 +20,18 @@ public class Sprite {
     protected float stateTime;
     protected HashMap<String, Animation> animations;
 
-    public Sprite(Vector2 position, int width, int height) {
+    public Sprite(Vector2 position, int width, int height, String sheetPatch) {
         this.position = position; // initialize the position to origin
         this.width = width * LevelController.UNIT_SCALE;
         this.height = height * LevelController.UNIT_SCALE;
-        spriteSheet = new Spritesheet("img/aliens.png", width, height);
+        spriteSheet = new Spritesheet(sheetPatch, width, height);
         animations = new HashMap<String, Animation>();
         stateTime = 0f;
     }
     // function to draw speadsheet
     public void draw(Batch spriteBatch) {
         // to draw the player on the screen
+        spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width, height);
         spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width, height);
 
     }
