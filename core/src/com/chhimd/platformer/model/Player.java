@@ -31,11 +31,21 @@ public class Player extends Sprite { // family tree
         PolygonShape rectangleShape = new PolygonShape();
         rectangleShape.setAsBox(this.width / 2f, this.height / 2f, new Vector2(this.width / 2f, this.height / 2f), 0f);
 
+        PolygonShape sensorShape = new PolygonShape();
+        sensorShape.setAsBox(this.width/ 2.2f, this.height/ 32,  new Vector2(this.width/ 2, 0), 0f);
+
+
         FixtureDef fixtureDefinition = new FixtureDef();
         fixtureDefinition.shape = rectangleShape;
 
+        FixtureDef fixtureDefinitionSensor = new FixtureDef();
+        fixtureDefinitionSensor.shape = sensorShape;
+        fixtureDefinitionSensor.isSensor = true;
+
         physicsbody.createFixture(fixtureDefinition);
+        physicsbody.createFixture(fixtureDefinitionSensor);
         rectangleShape.dispose();
+        sensorShape.dispose();
 
         // stand, jump, walk, climb, hurt, idol, swim, climb, duck
         animations.put("stand", spriteSheet.createAnimation(8, 8, 0.1f ));

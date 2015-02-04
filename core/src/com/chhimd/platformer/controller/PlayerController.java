@@ -9,13 +9,16 @@ import com.chhimd.platformer.model.Player;
 public class PlayerController {
 
     public static Player player;
+    public static String movemewntAction;
+    public static String specialAction;
+    public static boolean grounded;
 
     private static final float VELOCITY = 1f;
     private static final float MAX_VELOCITY = 5f;
 
     public static void initializeController() {
 
-        player = new Player(new Vector2(2,2), 70, 100, "img/aliens.png");
+        player = new Player(new Vector2(2,4), 70, 100, "img/aliens.png");
 
     }
 
@@ -41,4 +44,6 @@ public class PlayerController {
             player.physicsbody.applyLinearImpulse(VELOCITY, 0f, position.x, position.y, true);
         }
     }
+
+
 }

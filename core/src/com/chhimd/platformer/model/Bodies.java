@@ -30,6 +30,7 @@ public class Bodies {
 
             physicsBody.createFixture(fixtureDefinition);
             rectangleShape.dispose();
+
         }
     }
 }

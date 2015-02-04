@@ -11,11 +11,11 @@ public class EnemyController {
 
     public static void initializeController() {
 
-        enemy = new Enemy(new Vector2(4,4), 70, 100);
+        enemy = new Enemy(new Vector2(3,3), 51, 58, "img/enemy-barnacle.png");
 
     }
 
-    public static void  update(float deltaTime) {
+    public static void update(float deltaTime) {
         enemy.updates(deltaTime);
     }
 
