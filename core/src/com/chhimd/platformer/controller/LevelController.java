@@ -35,7 +35,7 @@ public class LevelController {
     public static void initializeController() {
          level = new Level("map/map1.tmx");
          renderer = new OrthogonalTiledMapRenderer(level.map, UNIT_SCALE);// telling render how wide/tall it is
-        gameWorld = new World(new Vector2(0, 0), true);
+        gameWorld = new World(new Vector2(0, -10), true);
         gameWorld.setContactListener(new CollisionListener());
         worldBodies = new Array<Body>();
         debugRenderer = new Box2DDebugRenderer();
@@ -65,8 +65,10 @@ public class LevelController {
         gameWorld.getBodies(worldBodies);
 
         for (Body body : worldBodies) { //access every body in world bodies
-           Sprite spriteBody = (Player)body.getUserData();//casting a variable
-            spriteBody.position = body.getPosition();//this line does all the work
+            Sprite spriteBody = (Sprite) body.getUserData();//casting a variable
+            if (spriteBody != null) {
+                spriteBody.position = body.getPosition();//this line does all the work
+            }
         }
     }
      private static void createLevelBodies() {
