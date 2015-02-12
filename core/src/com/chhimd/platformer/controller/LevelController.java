@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.chhimd.platformer.model.Bodies;
 import com.chhimd.platformer.model.CollisionListener;
+import com.chhimd.platformer.model.InputControl;
 import com.chhimd.platformer.model.Level;
 import com.chhimd.platformer.model.Player;
 import com.chhimd.platformer.model.Sprite;
@@ -49,6 +50,9 @@ public class LevelController {
         spriteBatch.begin();
         PlayerController.draw(spriteBatch);
         spriteBatch.end();
+
+        InputController.draw(spriteBatch);
+
         // display the shape of the exact size
         debugRenderer.render(gameWorld, CameraController.camera.combined);
     }
