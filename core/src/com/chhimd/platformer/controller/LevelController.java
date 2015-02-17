@@ -49,6 +49,7 @@ public class LevelController {
     public static void draw() {
         spriteBatch.begin();
         PlayerController.draw(spriteBatch);
+        EnemyController.draw(spriteBatch);
         spriteBatch.end();
 
         InputController.draw(spriteBatch);
