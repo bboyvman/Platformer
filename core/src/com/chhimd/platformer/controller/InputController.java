@@ -11,16 +11,19 @@ public class InputController {
 
     public static Spritesheet spritesheet;
     public  static InputControl left;
+    public  static InputControl right;
 
     public static void initializeController() {
         spritesheet = new Spritesheet("img/touch-controls.png", 80, 80);
         left = new InputControl(new Vector2(0,0), spritesheet.spriteFrames[0], "left");
-        Gdx.input.setInputProcessor();
+        right = new InputControl(new Vector2(2,0), spritesheet.spriteFrames[1], "right");
+        Gdx.input.setInputProcessor(createInputAdapter());
     }
 
     public static void draw(Batch spriteBatch) {
         spriteBatch.begin();
         left.draw(spriteBatch);
+        right.draw(spriteBatch);
         spriteBatch.end();
     }
 
